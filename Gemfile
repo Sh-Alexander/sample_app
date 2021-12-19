@@ -29,7 +29,6 @@ gem 'bootsnap', '>= 1.4.4', require: false
 gem 'faker', '2.19.0'
 gem 'carrierwave', '2.2.2'
 gem 'mini_magick', '4.11.0'
-gem 'fog', '2.2.0'
 gem 'will_paginate', '3.3.1'
 gem 'bootstrap-will_paginate', '1.0.0'
 gem 'bootstrap-sass', '3.4.1'
