@@ -292,6 +292,7 @@ GEM
 
 PLATFORMS
   arm64-darwin-21
+  x86_64-darwin-17
   x86_64-darwin-20
   x86_64-linux
 
@@ -330,9 +331,6 @@ DEPENDENCIES
   webdrivers
   webpacker (~> 5.0)
   will_paginate (= 3.3.1)
-
-RUBY VERSION
-   ruby 3.0.3p157
 
 BUNDLED WITH
    2.2.32
