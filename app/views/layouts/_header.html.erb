@@ -5,15 +5,15 @@
       <ul class="nav navbar-nav navbar-right">
         <li><%= link_to "Home",   root_path %></li>
         <li><%= link_to "Help",   help_path %></li>
-        <% if logget_in? %>
-        <li><%= link_to "User", '#' %><li>
+        <% if logged_in? %>
+        <li><%= link_to "Users", users_path %></li>
         <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-bs-toggle="dropdown">
               Account <b class="caret"></b>
             </a>
             <ul class="dropdown-menu">
             <li><%= link_to "Profile", current_user, class: "dropdown-item"  %><li>
-            <li><%= link_to "Settings", '#', class: "dropdown-item" %><li>
+            <li><%= link_to "Settings", edit_user_path(current_user) %><li>
             <li class="divider"></li>
               <li>
               <%= link_to "Log out", logout_path, class: "dropdown-item", method: "delete" %>
