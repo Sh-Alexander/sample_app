@@ -4,6 +4,7 @@ aleksandr:
   name: Aleksandr
   email: fafa.89@mail.ru
   password_digest: <%= User.digest('password') %>
+  admin: true
 
 sofia:
   name: Sofia
