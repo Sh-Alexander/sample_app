@@ -40,9 +40,9 @@ module SessionsHelper
 
      # Осуществляет выход текущего пользователя.
     def log_out
-        forget(current_user)
         session.delete(:user_id)
         @current_user = nil
+        
     end
 
     def current_user?(user)
