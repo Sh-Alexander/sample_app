@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+    has_many :microposts, dependent: :destroy
     attr_accessor :remember_token, :activation_token, :reset_token
     before_save   :downcase_email
     before_create :create_activation_digest
@@ -15,8 +16,8 @@ class User < ApplicationRecord
     #Возвращает дайджест данной строки
     def User.digest(string)
         cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
-        BCrypt::Engine.cost
-BCrypt::Password.create(string, cost: cost)  
+                                                      BCrypt::Engine.cost
+        BCrypt::Password.create(string, cost: cost)  
     end
 # Возвращает случайный токен
     def User.new_token
@@ -63,8 +64,15 @@ BCrypt::Password.create(string, cost: cost)
      end
 
      # Возвращает true, если истек срок давности ссылки для сброса пароля 
-    def password_resets_expired
-        reset_sent_at < 1.hours.ago
+    def password_resets_expired?
+        reset_sent_at < 2.hours.ago
+    end
+
+    # Определяет прото-ленту.
+    # Полная реализация в "Следовании за пользователями".
+
+    def feed
+        Micropost.where("user_id = ?", id)
     end
 
     private

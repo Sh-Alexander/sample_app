@@ -2,7 +2,6 @@ require "test_helper"
 
 class UserMailerTest < ActionMailer::TestCase
   test "account_activation" do
-    #skip "parse the encoding error"
     user = users(:aleksandr)
     user.activation_token = User.new_token
     mail = UserMailer.account_activation(user)

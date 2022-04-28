@@ -131,5 +131,8 @@ Rails.application.configure do
     :domain         => 'heroku.com',
     :enable_starttls_auto => true
   }
+  #Store uploaded files on Amazon AWS
+  config.active_storage.service = :selectel
+
 
 end

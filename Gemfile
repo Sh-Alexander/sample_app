@@ -21,14 +21,17 @@ gem 'jbuilder', '~> 2.7'
 # Use Active Model has_secure_password
 gem 'bcrypt', '~> 3.1.16'
 
-# Use Active Storage variant
-# gem 'image_processing', '~> 1.2'
+gem 'active_storage_validations', '0.9.8'
+
+gem 'image_processing', '~> 1.12'
+
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
 gem 'faker', '2.20.0'
 gem 'carrierwave', '2.2.2'
 gem 'mini_magick', '4.11.0'
+#gem 'fog',         '2.2.0'
 gem 'will_paginate', '3.3.1'
 gem 'bootstrap-will_paginate', '1.0.0'
 gem 'bootstrap-sass', '3.4.1'
@@ -77,4 +80,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 group :production do
   gem 'pg'
   gem 'rails_12factor'
+  gem 'aws-sdk-s3', '1.113.2', require: false
 end

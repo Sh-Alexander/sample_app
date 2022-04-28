@@ -16,7 +16,7 @@ class UsersController < ApplicationController
  
   def show
     @user = User.find(params[:id])
-    #debugger
+    @microposts = @user.microposts.paginate(page: params[:page])
   end
 
   def new
@@ -38,7 +38,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)
-      flash[:success] = "Profile Updated"
+      flash[:success] = "Profile updated"
       redirect_to @user 
       # Обрабатывает успешное обновление
     else
@@ -51,16 +51,6 @@ private
 def user_params
   params.require(:user).permit(:name, :email, :password, :password_confirmation)
 end
-
-# Предфильтры
-    # Подтверждает вход пользователя
-    def logged_in_user  
-      unless logged_in?
-        store_location
-        flash[:danger] = "!Please log in!"
-        redirect_to login_url
-      end
-    end
 
     # Подтверждает правильного пользователя
 def correct_user

@@ -21,7 +21,6 @@ module SessionsHelper
             if user && user.authenticated?(:remember, cookies[:remember_token])
                 log_in user
                 @current_user = user
-
             end
         end
     end
@@ -40,13 +39,14 @@ module SessionsHelper
 
      # Осуществляет выход текущего пользователя.
     def log_out
+        forget(current_user)
         session.delete(:user_id)
         @current_user = nil
         
     end
 
     def current_user?(user)
-        user && user == current_user
+        user && user == current_user 
     end
 # Перенаправляет к сохраненному расположению (или по умолчанию).
 
