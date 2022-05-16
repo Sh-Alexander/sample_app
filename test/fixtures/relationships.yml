@@ -1,0 +1,12 @@
+one:
+  follower: aleksandr
+  followed: lana
+two:
+  follower: aleksandr
+  followed: malory
+three:
+  follower: lana
+  followed: aleksandr
+four:
+  follower: sofia
+  followed: aleksandr
